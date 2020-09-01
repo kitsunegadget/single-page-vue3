@@ -2,21 +2,22 @@
 <header class="header">
     <div class="header-dock">
       <HeaderToggleNav 
-        :nav-strings=navStrings
+        :navs=navs
         :nav-opened=navOpened
+        @false-nav-open="falseNavOpen"
       />
       <HeaderToggleButton 
         :nav-opened=navOpened
         @click="invertNavOpen"
       />
 
-      <div class="title">
-        {{ "Single Page Vue3" }}
-      </div>
+      <a class="title" href="#">
+        {{ "Simple Music Page" }}
+      </a>
       <div class="landscape-nav">
         <ul>
-          <li v-for="nav in navStrings" :key=nav>
-            <a href="#" @click="falseNavOpen">{{ nav }}</a>
+          <li v-for="nav in navs" :key=nav.name>
+            <a :href="nav.hash" @click="falseNavOpen">{{ nav.name }}</a>
           </li>
         </ul>
       </div>
@@ -41,10 +42,16 @@ export default defineComponent({
   },
   data() {
     return {
-      navStrings: [
-        'Track List',
-        'Info'
-      ],
+      navs: [
+        {
+          name: 'Track List',
+          hash: '#track'
+        },
+        {
+          name: 'Info',
+          hash: '#info'
+        }
+      ],  
       navOpened: false
     }
   },
@@ -61,14 +68,20 @@ export default defineComponent({
 
 <style lang="scss">
 .header {
-  position: relative;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 50px;
+
+  border-bottom: solid 1px #333;
+  box-sizing: border-box;
   
-  background: #666;
+  background: #21223600;
 }
 
 .header-dock {
@@ -80,7 +93,7 @@ export default defineComponent({
   width: 1000px;
 
   @media (max-width: 720px) {
-    width: 100vw;
+    width: 100%;
   }
 }
 
@@ -88,6 +101,7 @@ export default defineComponent({
   color: #fff;
   line-height: 50px;
   font-size: 1.5rem;
+  text-decoration: none;
 }
 
 .landscape-nav {
@@ -112,6 +126,10 @@ export default defineComponent({
     font-weight: 600;
     text-decoration: none;
     line-height: 50px;
+
+    &:hover {
+      color: rgb(255, 136, 0);
+    }
   }
 
   @media (max-width: 720px) {
@@ -127,6 +145,6 @@ export default defineComponent({
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #aaaa;
+    // background: #aaaa;
   }
 </style>

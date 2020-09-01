@@ -9,12 +9,12 @@
     display: flex;
     justify-content: center;
     font-size: 0.75rem;
-    height: 20px;
-    width: 100vw;
+    height: 25px;
+    width: 100%;
 
-    line-height: 20px;
+    line-height: 25px;
     color: #fff;
 
-    background: rgb(33, 34, 54);
+    background: #212236;
 }
 </style>

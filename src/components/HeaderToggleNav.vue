@@ -5,8 +5,13 @@
     :opened="navOpened"
   >
     <ul>
-      <li v-for="nav in navStrings" :key=nav>
-        <a href="#">{{ nav }}</a>
+      <li v-for="nav in navs" :key=nav>
+        <a 
+          :href="nav.hash" 
+          @click="$emit('false-nav-open')"
+        >
+          {{ nav.name }}
+        </a>
       </li>
     </ul>
   </div>
@@ -17,8 +22,8 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
-    navStrings: {
-      type: Array,
+    navs: {
+      type: Object,
       required: true
     },
     navOpened: {
@@ -31,10 +36,11 @@ export default defineComponent({
 
 <style lang="scss">
 .toggle-nav {
-  background: #0005;
-  position: absolute;
-  left: 0;
-  z-index: -1;
+  background: #000d;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 150px;
 
   margin-top: 50px;
   // display: flex;
@@ -44,7 +50,7 @@ export default defineComponent({
   transform: translateY(-150%);
 
   ul {
-    margin: 10px 20px;
+    margin: 10px 0px;
     padding: 0;
   }
 
@@ -54,8 +60,8 @@ export default defineComponent({
   }
   a {
     display: block;
-    padding: 0 10px;
-    color: #333;
+    padding: 0 20px;
+    color: #ccc;
     font-weight: 600;
     font-size: 1rem;
     line-height: 50px;

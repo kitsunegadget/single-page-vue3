@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <Content style="flex: 1" />
+    <Content />
     <Footer />
   </div>
 </template>
@@ -23,22 +23,33 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;
+
+  font-family: Roboto, 'Segoe UI', Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  color: #2c3e50;
+  font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  font-size: 10px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: 100%;
+
+  // overflow-x: hidden;
+  // z-index: 20;
+  scroll-behavior: smooth;
 }
 </style>
