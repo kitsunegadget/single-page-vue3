@@ -50,10 +50,15 @@ export default defineComponent({
 .abstract {
     color: #fff;
     font-size: 2.0rem;
+    margin: 0 20px;
 
     &-mini {
         color: #fff;
         font-size: 1.0rem;
+    }
+
+    @media (max-width: 540px) {
+        text-align: center;
     }
 }
 

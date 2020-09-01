@@ -141,9 +141,12 @@ export default defineComponent({
 
 .content-container {
     display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
+    flex-direction: row;
+    justify-content: space-between;
+  
+    @media (max-width: 540px) {
+        flex-direction: column-reverse;
+    }
 }
 
 .middle-left {

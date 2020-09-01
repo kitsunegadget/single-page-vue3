@@ -48,7 +48,7 @@ export default defineComponent({
           hash: '#track'
         },
         {
-          name: 'Info',
+          name: 'Infomation',
           hash: '#info'
         }
       ],  
@@ -94,6 +94,7 @@ export default defineComponent({
 
   @media (max-width: 720px) {
     width: 100%;
+    justify-content: initial;
   }
 }
 
@@ -133,7 +134,8 @@ export default defineComponent({
   }
 
   @media (max-width: 720px) {
-    visibility: hidden;
+    // visibility: hidden;
+    display: none;
   }
 }
 
