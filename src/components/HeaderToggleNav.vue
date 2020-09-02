@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <nav 
     id="toggle-nav"
     class="toggle-nav" 
     :opened="navOpened"
@@ -8,13 +8,13 @@
       <li v-for="nav in navs" :key=nav>
         <a 
           :href="nav.hash" 
-          @click="$emit('false-nav-open')"
+          @click="$emit('change-nav-open', false)"
         >
           {{ nav.name }}
         </a>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 
 <script lang="ts">
@@ -72,7 +72,7 @@ export default defineComponent({
 
     &:hover {
       color: #fff;
-      background: rgb(6, 38, 46);
+      background: #06262e;
     }
   }
 }

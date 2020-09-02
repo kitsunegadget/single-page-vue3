@@ -1,7 +1,7 @@
 <template>
-    <div class="footer">
+    <footer class="footer">
         {{ "&copy; 2020 Kitsune Gadget." }}
-    </div>
+    </footer>
 </template>
 
 <style lang="scss">

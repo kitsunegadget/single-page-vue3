@@ -1,7 +1,9 @@
 <template>
-  <ContentTop />
-  <ContentMiddle />
-  <ContentUnder />
+  <main class="content">
+    <ContentTop />
+    <ContentMiddle />
+    <ContentUnder />
+  </main>
 </template>
 
 <script lang="ts">
@@ -21,7 +23,7 @@ export default defineComponent({
 
 <style lang="scss">
 .content {
-  height: 100vh;
-  background: #ddd;
+  min-height: 100vh;
+  // background: #ddd;
 }
 </style>

@@ -29,6 +29,7 @@ export default defineComponent({
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -39,7 +40,6 @@ body {
   
   color: #2c3e50;
   font-size: 10px;
-  scroll-behavior: smooth;
 }
 
 #app {
@@ -47,9 +47,5 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-
-  // overflow-x: hidden;
-  // z-index: 20;
-  scroll-behavior: smooth;
 }
 </style>

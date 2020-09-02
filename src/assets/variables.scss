@@ -1,0 +1,26 @@
+// colors
+$color-blueblack:  #212236;
+$color-orange:  #ff8800;
+$color-green-dark: #06262e;
+
+
+
+
+
+@mixin center-dock {
+    width: 1000px;
+
+    @media (max-width: 720px) {
+        width: 100%;
+    }
+}
+
+// defaults
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}

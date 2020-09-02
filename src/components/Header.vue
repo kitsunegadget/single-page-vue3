@@ -4,28 +4,29 @@
       <HeaderToggleNav 
         :navs=navs
         :nav-opened=navOpened
-        @false-nav-open="falseNavOpen"
+        @change-nav-open="changeNavOpen"
       />
       <HeaderToggleButton 
         :nav-opened=navOpened
-        @click="invertNavOpen"
+        @click="changeNavOpen(!navOpened)"
       />
 
-      <a class="title" href="#">
+      <a class="title" href="#" @click="changeNavOpen(false)">
         {{ "Simple Music Page" }}
       </a>
-      <div class="landscape-nav">
+      <nav class="landscape-nav">
         <ul>
           <li v-for="nav in navs" :key=nav.name>
-            <a :href="nav.hash" @click="falseNavOpen">{{ nav.name }}</a>
+            <a :href="nav.hash" @click="changeNavOpen(false)">{{ nav.name }}</a>
           </li>
         </ul>
-      </div>
+      </nav>
     </div>
   </header>
+
   <div 
     class="toggle-mask" 
-    @click="falseNavOpen"
+    @click="changeNavOpen(false)"
     v-show=navOpened
   />
 </template>
@@ -56,11 +57,8 @@ export default defineComponent({
     }
   },
   methods: {
-    invertNavOpen() {
-      this.navOpened = !this.navOpened;
-    },
-    falseNavOpen() {
-      this.navOpened = false;
+    changeNavOpen(status: boolean) {
+      this.navOpened = status;
     }
   }
 })
@@ -129,7 +127,7 @@ export default defineComponent({
     line-height: 50px;
 
     &:hover {
-      color: rgb(255, 136, 0);
+      color: #ff8800;
     }
   }
 
