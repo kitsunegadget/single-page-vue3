@@ -36,7 +36,8 @@ export default {
         }
     },
     watch: {
-        navOpened: function() {
+        /* eslint-disable-next-line */
+        navOpened: function() { 
             if (this.navOpened) {
                 const anim = document.querySelectorAll(".hmbAnim");
                 anim.forEach(elem => {
