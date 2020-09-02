@@ -2,16 +2,19 @@
 $color-blueblack:  #212236;
 $color-orange:  #ff8800;
 $color-green-dark: #06262e;
+$color-green-light: #1d8640;
+$color-green-light-hover: #35be63;
 
 
 
 
 
-@mixin center-dock {
+@mixin centering-dock {
     width: 1000px;
 
     @media (max-width: 720px) {
         width: 100%;
+        justify-content: initial;
     }
 }
 

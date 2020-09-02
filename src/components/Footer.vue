@@ -9,12 +9,12 @@
     display: flex;
     justify-content: center;
     font-size: 0.75rem;
-    height: 25px;
+    height: 30px;
     width: 100%;
 
-    line-height: 25px;
+    line-height: 30px;
     color: #fff;
 
-    background: #212236;
+    background: $color-blueblack;
 }
 </style>

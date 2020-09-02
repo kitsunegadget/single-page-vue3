@@ -76,11 +76,11 @@ export default defineComponent({
     text-decoration: none;
     text-align: center;
 
-    background: #1d8640;
+    background: $color-green-light;
     transition: background ease 0.5s;
 
     &:hover {
-        background: #35be63;
+        background: $color-green-light-hover;
         cursor: pointer;
     }
 }

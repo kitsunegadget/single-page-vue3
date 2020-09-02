@@ -1,5 +1,9 @@
 <template>
-<header class="header">
+  <header class="header">
+    <div 
+      class="header-background"
+      v-opacity
+    />
     <div class="header-dock">
       <HeaderToggleNav 
         :navs=navs
@@ -53,7 +57,22 @@ export default defineComponent({
           hash: '#info'
         }
       ],  
-      navOpened: false
+      navOpened: false,
+      backgroundOpacity: 0
+    }
+  },
+  directives: {
+    "opacity": {
+      mounted(el: HTMLElement) {
+        window.onscroll = () => {
+          const op = (window.scrollY / window.innerHeight);
+          // console.log(op);
+          el.style.opacity = (op > 1 ? 1 : op < 0 ? 0 : op).toString();
+        }
+      },
+      unmounted() {
+        window.onscroll = null;
+      }
     }
   },
   methods: {
@@ -82,18 +101,24 @@ export default defineComponent({
   background: #21223600;
 }
 
+.header-background {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: $color-blueblack;
+  opacity: 0;
+}
+
 .header-dock {
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
-  width: 1000px;
-
-  @media (max-width: 720px) {
-    width: 100%;
-    justify-content: initial;
-  }
+  @include centering-dock;
 }
 
 .title {

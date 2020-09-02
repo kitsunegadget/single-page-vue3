@@ -47,11 +47,7 @@
   display: flex;
   flex-direction: column;
 
-  width: 1000px;
-
-  @media (max-width: 720px) {
-    width: 100%;
-  }
+  @include centering-dock;
 }
 
 .content-member {
