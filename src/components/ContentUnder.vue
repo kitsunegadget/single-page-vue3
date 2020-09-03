@@ -1,9 +1,9 @@
 <template>
   <div id="info" class="content-under">
     <div class="content-under-dock">
-      <div class="content-under-title">
+      <!-- <div class="content-under-title">
         {{ "Infomation" }}
-      </div>
+      </div> -->
       <div class="content-member">
         <div class="content-member-role">
           {{ "Product" }}
@@ -23,7 +23,7 @@
 .content-under {
   padding-top: 60px;
   min-height: 50vh;
-  background: #fff;
+  background: $color-blueblack;
 
   display: flex;
   flex-direction: row;
@@ -60,6 +60,7 @@
     margin-bottom: 10px;
     font-size: 1.2rem;
     font-weight: 600;
+    color: #ddd;
     // text-align: center;
   }
 
@@ -75,12 +76,12 @@
 
   a {
     padding: 5px;
-    color: #000;
+    color: #fff;
     text-decoration: none;
     transition: all ease 0.5s;
 
     &:hover {
-      background: #0002;
+      background: #0005;
       border-radius: 10px;
     }
       
