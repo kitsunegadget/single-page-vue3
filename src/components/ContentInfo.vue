@@ -61,6 +61,10 @@
   justify-content: center;
 
   margin: auto 0;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+  }
 }
 .content-info-left {
   flex: 1;
@@ -90,9 +94,7 @@
 }
 .content-info-right {
   flex: 1;
-  
 
-  
   .text-info {
     padding-left: 20px;
     display: flex;
@@ -103,6 +105,11 @@
     }
     p {
       font-size: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      padding: 0;
+      align-items: center;
     }
   }
 

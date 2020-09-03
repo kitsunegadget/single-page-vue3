@@ -65,7 +65,7 @@ export default defineComponent({
 .read-more {
     position: absolute;
     bottom: 0;
-    margin-bottom: 100px;
+    margin-bottom: calc(100vh * 0.2);
     width: 150px;
     height: 35px;
     border-radius: 50px;

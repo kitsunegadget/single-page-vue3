@@ -24,6 +24,7 @@
         </div>
         <div class="middle-right">
           <div class="middle-right-inside">
+            <!-- soundcloud iframe -->
             <iframe
               width="100%"
               height="450"
@@ -128,7 +129,7 @@ export default defineComponent({
 .content-dock {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   @include centering-dock;
 }
@@ -152,6 +153,7 @@ export default defineComponent({
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: auto 0;
 
   @media (max-width: 540px) {
     flex-direction: column-reverse;
