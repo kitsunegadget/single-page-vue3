@@ -2,13 +2,13 @@
   <nav 
     id="toggle-nav"
     class="toggle-nav" 
-    :opened="navOpened"
+    :opened="isNavigationOpen"
   >
     <ul>
-      <li v-for="nav in navs" :key=nav>
+      <li v-for="nav in navigations" :key=nav>
         <a 
           :href="nav.hash" 
-          @click="$emit('change-nav-open', false)"
+          @click="changeNavigationOpen(false)"
         >
           {{ nav.name }}
         </a>
@@ -18,17 +18,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
 
 export default defineComponent({
-  props: {
-    navs: {
-      type: Object,
-      required: true
-    },
-    navOpened: {
-      type: Boolean,
-      required: true
+  setup() {
+    const isNavigationOpen = inject('isNavigationOpen')
+    const changeNavigationOpen = inject('changeNavigationOpen')
+    const navigations = inject('navigations')
+
+    return {
+      isNavigationOpen,
+      changeNavigationOpen,
+      navigations
     }
   }
 })

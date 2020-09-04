@@ -5,23 +5,24 @@
       v-opacity
     />
     <div class="header-dock">
-      <HeaderToggleNav 
-        :navs=navs
-        :nav-opened=navOpened
-        @change-nav-open="changeNavOpen"
-      />
+      <HeaderToggleNav />
       <HeaderToggleButton 
-        :nav-opened=navOpened
-        @click="changeNavOpen(!navOpened)"
+        :is-navigation-open=isNavigationOpen
+        @click="changeNavigationOpen(!isNavigationOpen)"
       />
 
-      <a class="title" href="#" @click="changeNavOpen(false)">
+      <a class="title" href="#" @click="changeNavigationOpen(false)">
         {{ "Simple Music Page" }}
       </a>
       <nav class="landscape-nav">
         <ul>
-          <li v-for="nav in navs" :key=nav.name>
-            <a :href="nav.hash" @click="changeNavOpen(false)">{{ nav.name }}</a>
+          <li v-for="nav in navigations" :key=nav.name>
+            <a 
+              :href="nav.hash" 
+              @click="changeNavigationOpen(false)"
+            >
+              {{ nav.name }}
+            </a>
           </li>
         </ul>
       </nav>
@@ -30,34 +31,54 @@
 
   <div 
     class="toggle-mask" 
-    @click="changeNavOpen(false)"
-    v-show=navOpened
+    @click="changeNavigationOpen(false)"
+    v-show=isNavigationOpen
   />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HeaderToggleNav from './HeaderToggleNav.vue';
-import HeaderToggleButton from './HeaderToggleButton.vue';
+import { defineComponent, reactive, provide, readonly } from 'vue'
+import HeaderToggleNav from './HeaderToggleNav.vue'
+import HeaderToggleButton from './HeaderToggleButton.vue'
+
+import useNavigationOpenFlag from '@/composables/useNavigationOpenFlag'
+
+interface LinkNavigations {
+  name: string
+  hash: string
+}
 
 export default defineComponent({
   components: {
     HeaderToggleNav,
     HeaderToggleButton
   },
+  setup() {
+    const { isNavigationOpen, changeNavigationOpen } = useNavigationOpenFlag()
+
+    const navigations = reactive<LinkNavigations[]>([
+      {
+        name: 'Track List',
+        hash: '#track'
+      },
+      {
+        name: 'Infomation',
+        hash: '#info'
+      }
+    ])
+
+    provide('isNavigationOpen', readonly(isNavigationOpen))
+    provide('changeNavigationOpen', changeNavigationOpen)
+    provide('navigations', readonly(navigations))
+
+    return {
+      isNavigationOpen,
+      changeNavigationOpen,
+      navigations
+    }
+  },
   data() {
     return {
-      navs: [
-        {
-          name: 'Track List',
-          hash: '#track'
-        },
-        {
-          name: 'Infomation',
-          hash: '#info'
-        }
-      ],  
-      navOpened: false,
       backgroundOpacity: 0
     }
   },
@@ -65,19 +86,14 @@ export default defineComponent({
     "opacity": {
       mounted(el: HTMLElement) {
         window.onscroll = () => {
-          const op = (window.scrollY / window.innerHeight);
+          const op = (window.scrollY / window.innerHeight)
           // console.log(op);
-          el.style.opacity = (op > 1 ? 1 : op < 0 ? 0 : op).toString();
+          el.style.opacity = (op > 1 ? 1 : op < 0 ? 0 : op).toString()
         }
       },
       unmounted() {
-        window.onscroll = null;
+        window.onscroll = null
       }
-    }
-  },
-  methods: {
-    changeNavOpen(status: boolean) {
-      this.navOpened = status;
     }
   }
 })

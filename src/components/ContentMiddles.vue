@@ -24,7 +24,7 @@
         </div>
         <div class="middle-right">
           <div class="middle-right-inside">
-            <!-- soundcloud iframe -->
+            <!-- soundcloud embed -->
             <iframe
               width="100%"
               height="450"
@@ -49,6 +49,7 @@
                 style="color: #cccccc; text-decoration: none;"
               >Testing</a>
             </div>
+            <!-- soundcloud embed end -->
           </div>
         </div>
       </div>

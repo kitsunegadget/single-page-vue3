@@ -30,15 +30,15 @@
 <script>
 export default {
     props: {
-        navOpened: {
+        isNavigationOpen: {
             type: Boolean,
             required: true
         }
     },
     watch: {
         /* eslint-disable-next-line */
-        navOpened: function() { 
-            if (this.navOpened) {
+        isNavigationOpen: function() { 
+            if (this.isNavigationOpen) {
                 const anim = document.querySelectorAll(".hmbAnim");
                 anim.forEach(elem => {
                     elem.beginElement();
