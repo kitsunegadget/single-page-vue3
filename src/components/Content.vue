@@ -3,6 +3,7 @@
     <ContentTop />
     <ContentMiddle />
     <ContentInfo />
+    <ContentContact />
     <ContentUnder />
   </main>
 </template>
@@ -13,13 +14,15 @@ import ContentTop from './ContentTop.vue';
 import ContentMiddle from './ContentMiddles.vue'
 import ContentInfo from './ContentInfo.vue';
 import ContentUnder from './ContentUnder.vue'
+import ContentContact from './ContentContact.vue'
 
 export default defineComponent({
   components :{
     ContentTop,
     ContentMiddle,
     ContentInfo,
-    ContentUnder
+    ContentUnder,
+    ContentContact
   }
 })
 </script>

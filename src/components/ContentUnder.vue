@@ -23,7 +23,7 @@
 .content-under {
   padding-top: 60px;
   min-height: 50vh;
-  background: $color-blueblack;
+  background: #fff;
 
   display: flex;
   flex-direction: row;
@@ -60,7 +60,7 @@
     margin-bottom: 10px;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #ddd;
+    color: #333;
     // text-align: center;
   }
 
@@ -76,12 +76,12 @@
 
   a {
     padding: 5px;
-    color: #fff;
+    color: #000;
     text-decoration: none;
     transition: all ease 0.5s;
 
     &:hover {
-      background: #0005;
+      background: #0004;
       border-radius: 10px;
     }
       

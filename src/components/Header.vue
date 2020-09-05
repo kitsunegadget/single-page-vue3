@@ -64,6 +64,10 @@ export default defineComponent({
       {
         name: 'Infomation',
         hash: '#info'
+      },
+      {
+        name: 'Contact',
+        hash: '#contact'
       }
     ])
 
