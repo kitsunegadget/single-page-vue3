@@ -21,7 +21,7 @@
           type="text"
           name="user_name"
           required
-          placeholder="Your Name" 
+          placeholder="Your Name (Required)" 
           class="contact-form-name"
           @input="validateAll"
         />
@@ -30,7 +30,7 @@
           type="email"
           name="user_email"
           required
-          placeholder="Your Email" 
+          placeholder="Your Email (Required)" 
           class="contact-form-email"
           :error=isEmailError
           @input=inputValidateEmail
@@ -39,7 +39,7 @@
           v-model="message" 
           name="user_message"
           required
-          placeholder="Message" 
+          placeholder="Message (Required)" 
           class="contact-form-message" 
           @input="validateAll"
         />
@@ -65,8 +65,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch, ButtonHTMLAttributes } from 'vue'
-import useFormValidateCheckAll from '@/composables/useFormValidateCheckAll'
+import { defineComponent, ref, ButtonHTMLAttributes } from 'vue'
 
 export default defineComponent({
   setup() {
