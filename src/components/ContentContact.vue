@@ -82,7 +82,7 @@ export default defineComponent({
 
     // validate EMAIL
     const reg = /* eslint-disable-next-line */
-      /((^[^.(),:;<>@\[\]"\\\s][^(),:;<>@\[\]"\\\s]*[^.(),:;<>@\[\]"\\\s])|(".+"))@[a-zA-Z0-9][a-zA-Z0-9.-]*\.[a-zA-Z0-9]+/
+      /^[^.(),:;<>@\[\]"\\\s]([^(),:;<>@\[\]"\\\s]){0,62}[^.(),:;<>@\[\]"\\\s]@[a-zA-Z0-9][a-zA-Z0-9.-]*\.([a-zA-Z]){2,5}$/
     const inputValidateEmail = () => {
       isEmailError.value = !(email.value === "") && !reg.test(email.value) 
       validateAll()
