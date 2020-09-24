@@ -65,58 +65,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, ButtonHTMLAttributes } from 'vue'
+import { defineComponent, ref, ButtonHTMLAttributes, toRefs } from 'vue'
+import useFormValidate from '@/composables/useFormValidate'
 
 export default defineComponent({
   setup() {
     const errorMsg = ref("Invalid Input")
-    const name = ref("")
-    const email = ref("")
-    const message = ref("")
-
-    const isNameError = ref(false)
-    const isEmailError = ref(false)
-    const isMessageError = ref(false)
-    const isStatusInvalid = ref(true)
-    const isSentStauts = ref(false)
-
-    // validate EMAIL
-    const reg = /* eslint-disable-next-line */
-      /^[^.(),:;<>@\[\]"\\\s]([^(),:;<>@\[\]"\\\s]){0,62}[^.(),:;<>@\[\]"\\\s]@[a-zA-Z0-9][a-zA-Z0-9.-]*\.([a-zA-Z]){2,5}$/
-    const inputValidateEmail = () => {
-      isEmailError.value = !(email.value === "") && !reg.test(email.value) 
-      validateAll()
-    }
-
-    const validateAll = () => {
-      const a = name.value === ""
-      const b = !reg.test(email.value)
-      const c = message.value === ""
-
-      if(a || b || c) {
-        isStatusInvalid.value = true
-        return false
-      }
-      else {
-        isStatusInvalid.value = false
-        return true
-      }
-    }
-
-    const sendForm = () => {
-      const status = validateAll()
-
-      if (status) {
-        name.value = ""
-        email.value = ""
-        message.value = ""
-
-        isStatusInvalid.value = true
-        isSentStauts.value = true
-      }
-
-      console.log(`Sending ${status}`)
-    }
+ 
+    const { 
+      formData,
+      errors,
+      isStatusInvalid,
+      isSentStauts,
+      inputValidateEmail,
+      validateAll,
+      sendForm
+    } = useFormValidate()
     
     // watch(isEmailError, () => {
     //   if(isEmailError.value) 
@@ -127,12 +91,8 @@ export default defineComponent({
 
     return {
       errorMsg,
-      name,
-      email,
-      message,
-      isNameError,
-      isEmailError,
-      isMessageError,
+      ...toRefs(formData),
+      ...toRefs(errors),
       isStatusInvalid,
       inputValidateEmail,
       validateAll,
